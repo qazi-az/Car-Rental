@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental System with React</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+         body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4; 
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    .navbar {
+        background-color: #333;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 1em;
+        text-align: center;
+        border-radius: 8px;
+        margin: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+        background-color: #555;
+    }
+
+    .menu-icon {
+        cursor: pointer;
+        font-size: 1.5em;
+        margin-left: 10px;
+    }
+
+    #price {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .price-container {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f8f8f8;
+        margin-top: 10px;
+    }
+
+    .brand-container {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f8f8f8;
+    }
+
+    .model-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .model-list li {
+        margin-bottom: 10px;
+    }
+
+    .model-list li p {
+        margin-top: 5px;
+        color: #555;
+    }
+
+    .home-image, .about-image {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-icon" onclick="toggleNavbar()">☰</div>
+        <h1>Submission Form</h1>
+    </header>
+
+    <div class="navbar" id="navbar">
+        <a href="http://127.0.0.1:3000/about.html">About</a>
+        <a href="http://127.0.0.1:3000/contact.html">Contact</a>
+        <a href="http://127.0.0.1:3000/models.html">Models</a>
+        <a href="http://127.0.0.1:3000/main.html">Form</a>
+    </div>
+    <main>
+        <form id="carForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="brand">Select Car Brand:</label>
+            <select id="brand" name="brand" onchange="populateModels()" required>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Audi">Audi</option>
+                <option value="Volkswagen">Volkswagen</option>
+            </select>
+
+            <label for="model">Select Car Model:</label>
+            <select id="model" name="model" onchange="updatePrice()" required></select>
+
+            <label for="days">Number of Days for Rent:</label>
+            <input type="number" id="days" name="days" oninput="updatePrice()" required>
+                <div class="price-container">
+                    <label for="price"></label>
+                    <div id="price">null</div>
+                    <span id="icon"></span>
+
+                </div>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </main>
+
+
+<script type="text/babel">
+    class SubmissionForm extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                name: '',
+                email: '',
+                brand: '',
+                model: '',
+                days: 0,
+            };
+            this.handleChange = this.handleChange.bind(this);
+            this.submitForm = this.submitForm.bind(this);
+        }
+
+        handleChange(event) {
+            const { name, value } = event.target;
+            this.setState({
+                [name]: value,
+            });
+        }
+
+        submitForm() {
+            const { name, email, brand, model, days } = this.state;
+            alert(`Form submitted successfully!\nName: ${name}\nEmail: ${email}\nBrand: ${brand}\nModel: ${model}\nDays: ${days}`);
+        }
+
+        render() {
+            return (
+                <form id="carForm">
+                    <label htmlFor="name">Your Name:</label>
+                    <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleChange} required />
+
+                    <label htmlFor="email">Your Email:</label>
+                    <input type="email" id="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+
+                    <label htmlFor="brand">Select Car Brand:</label>
+                    <select id="brand" name="brand" value={this.state.brand} onChange={this.handleChange} required>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Ford">Ford</option>
+                    </select>
+
+                    <label htmlFor="model">Select Car Model:</label>
+                    <select id="model" name="model" value={this.state.model} onChange={this.handleChange} required>
+                    </select>
+
+                    <label htmlFor="days">Number of Days for Rent:</label>
+                    <input type="number" id="days" name="days" value={this.state.days} onChange={this.handleChange} required />
+
+                    <div className="price-container">
+                        <label htmlFor="price">Price in PKR:</label>
+                        <div id="price">{}</div>
+                    </div>
+
+                    <button type="button" onClick={this.submitForm}>Submit</button>
+                </form>
+            );
+        }
+    }
+    const reactContainer = document.getElementById("react-container");
+    ReactDOM.render(<SubmissionForm />, reactContainer);
+</script>
+<script>
+     var modelPrices = {
+    Corolla: 5000,
+    Camry: 7000,
+    Rav4: 8000,
+    Highlander: 9000,
+    Prius: 6000,
+    Civic: 5500,
+    Accord: 7500,
+    'CR-V': 8500,
+    Pilot: 9500,
+    Fit: 6000,
+    Fusion: 6000,
+    Escape: 7500,
+    Explorer: 9000,
+    Mustang: 8000,
+    'F-150': 10000,
+    Malibu: 6500,
+    Equinox: 8000,
+    Traverse: 9000,
+    Camaro: 8500,
+    Silverado: 11000,
+    '3 Series': 8500,
+    '5 Series': 10000,
+    X3: 9500,
+    X5: 11000,
+    M4: 12000,
+    'C-Class': 9000,
+    'E-Class': 11000,
+    GLC: 10000,
+    GLE: 12000,
+    'S-Class': 15000,
+    A3: 8000,
+    A4: 9500,
+    Q5: 11000,
+    Q7: 12000,
+    R8: 18000,
+    Jetta: 6500,
+    Passat: 8000,
+    Tiguan: 9500,
+    Atlas: 11000,
+    Golf: 7000
+};
+
+function populateModels() {
+    var brandSelect = document.getElementById("brand");
+    var modelSelect = document.getElementById("model");
+    var models = {
+        Toyota: ["Corolla", "Camry", "Rav4", "Highlander", "Prius"],
+        Honda: ["Civic", "Accord", "CR-V", "Pilot", "Fit"],
+        Ford: ["Fusion", "Escape", "Explorer", "Mustang", "F-150"],
+        Chevrolet: ["Malibu", "Equinox", "Traverse", "Camaro", "Silverado"],
+        BMW: ["3 Series", "5 Series", "X3", "X5", "M4"],
+        Mercedes: ["C-Class", "E-Class", "GLC", "GLE", "S-Class"],
+        Audi: ["A3", "A4", "Q5", "Q7", "R8"],
+        Volkswagen: ["Jetta", "Passat", "Tiguan", "Atlas", "Golf"]
+    };
+
+    var selectedBrand = brandSelect.value;
+    modelSelect.innerHTML = '';
+
+    models[selectedBrand].forEach(function (model) {
+        var option = document.createElement("option");
+        option.text = model;
+        modelSelect.add(option);
+    });
+}
+
+function updatePrice() {
+    var selectedModel = document.getElementById("model").value;
+    var days = parseInt(document.getElementById("days").value, 10);
+    var priceElement = document.getElementById("price");
+    var iconElement = document.getElementById("icon");
+    var price = modelPrices[selectedModel] || 0;
+
+    if (!isNaN(days) && days > 0) {
+        price *= days;
+        iconElement.textContent = "🔼";
+    } else {
+        price = null;
+        iconElement.textContent = "🔽";
+    }
+
+    priceElement.textContent = "Price in PKR: " + (price !== null ? price : "null");
+}
+
+function submitForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var brand = document.getElementById("brand").value;
+    var model = document.getElementById("model").value;
+    var days = document.getElementById("days").value;
+    alert("Form submitted successfully!\nName: " + name + "\nEmail: " + email + "\nBrand: " + brand + "\nModel: " + model + "\nDays: " + days);
+}
+
+
+        function toggleNavbar() {
+            var navbar = document.getElementById("navbar");
+            if (navbar.style.display === "flex") {
+                navbar.style.display = "none";
+            } else {
+                navbar.style.display = "flex";
+            }
+        }
+        function closeNavbar() {
+            var navbar = document.getElementById("navbar");
+            navbar.style.display = "none";
+        }
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modelParam = urlParams.get('model');
+    
+    if (modelParam) {
+        const modelSelect = document.getElementById('model');
+        modelSelect.value = modelParam;
+    }
+});
+</script>
+</body>
+</html>

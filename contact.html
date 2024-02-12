@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental System - Contact</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0JNl/Vjq4AoPkGg1cSz5y66JAwk5ELOsnMI4jN5L5pZW8i+YR/Uw0BBKUgQ==" crossorigin="anonymous" />
+</head>
+<body>
+
+    <header>
+        <div class="menu-icon" onclick="toggleNavbar()">☰</div>
+        <h1>Contact</h1>
+    </header>
+
+    <div class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="models.html">Models</a>
+        <a href="main.html">Form</a>
+    </div>
+
+    <main id="main-content">
+        <h2>Feedback</h2>
+        <form id="contactForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        
+            <button type="button" onclick="submitContactForm()">Submit</button>
+        </form>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="submissionMessage" style="color: green; font-weight: bold;">Your message has been sent successfully!</p>
+            </div>
+        </div>
+        <div id="react-container"></div>
+    </main> 
+
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:batch21.cs@gmail.com">batch21.cs@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> WhatsApp: <a href="tel:+923404352505">+92 34-04352505</a></p>
+            <p><i class="fab fa-instagram"></i>Instagram : <a href="https://www.instagram.com/qazi_az_?igsh=Zm14aW0ybHB0NjZ4" target="_blank">Qazi's Insta</a></p>
+        </div>
+    </div>
+
+    <style>
+        #react-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .react-message {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 10px;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .navbar {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    background: linear-gradient(to bottom, #333, #222);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1em;
+    z-index: 1;
+    display: none;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    text-align: center;
+    border-radius: 8px;
+    margin: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+        .contact-container {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            background-color: #3b9bac;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .contact-box {
+            background-color: #3b9bac;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .contact-box a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+
+   
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        class SubmissionMessage extends React.Component {
+            render() {
+                return (
+                    <div className="react-message">
+                        <p>Thank You </p>
+                    </div>
+                );
+            }
+        }
+        const reactContainer = document.getElementById("react-container");
+        ReactDOM.render(<SubmissionMessage />, reactContainer);
+    </script>
+
+
+    <script src="path/to/common.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('submitBtn').addEventListener('click', submitContactForm);
+        });
+
+        function submitContactForm() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+    <script>
+        function toggleNavbar() {
+            var navbar = document.getElementById("navbar");
+            if (navbar.style.display === "flex") {
+                navbar.style.display = "none";
+            } else {
+                navbar.style.display = "flex";
+            }
+        }
+    </script>
+</body>
+</html>

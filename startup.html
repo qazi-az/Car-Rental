@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Page - Car Rental System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('STARTUP.jpg') center/cover no-repeat fixed;
+        }
+
+        header { 
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+        }
+
+        main {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        .get-started-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #ff4500; 
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .get-started-btn:hover {
+            background-color: #fff;
+            color: #333;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .background-image:hover {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Car Rental System</h1>
+    </header>
+
+    <main>
+        <div class="background-image"></div>
+
+        <h2>Welcome to the Car Rental System</h2>
+        <p>Embark on a journey with our top-notch vehicles. Select from a fleet of luxury cars for a remarkable experience.</p>
+        <a href="http://127.0.0.1:3000/home.html" class="get-started-btn">Get Started</a>
+        <div id="react-container"></div>
+    </main>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        class ExampleComponent extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h3>Explore Our Fleet</h3>
+                        <p>Discover a world of luxury and performance with our premium collection of cars. Your journey begins with Car Rental System.</p>
+                    </div>
+                );
+            }
+        }
+        const reactContainer = document.getElementById("react-container");
+        ReactDOM.render(<ExampleComponent />, reactContainer);
+    </script>
+
+</body>
+</html>

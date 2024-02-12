@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental System - About</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="path/to/about.js"></script>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+h2, h3 {
+    color: #333;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-image:hover {
+    transform: scale(1.1);
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.details h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.details p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.customer-benefits,
+.environmental-responsibility,
+.safety-measures,
+.advanced-booking,
+.loyalty-program,
+.roadside-assistance {
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.customer-benefits h3,
+.environmental-responsibility h3,
+.safety-measures h3,
+.advanced-booking h3,
+.loyalty-program h3,
+.roadside-assistance h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.customer-benefits ul,
+.safety-measures ul,
+.advanced-booking ul,
+.loyalty-program ul,
+.roadside-assistance ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.customer-benefits li,
+.safety-measures li,
+.advanced-booking li,
+.loyalty-program li,
+.roadside-assistance li {
+    margin-bottom: 8px;
+}
+
+.customer-benefits img,
+.environmental-responsibility img,
+.safety-measures img,
+.advanced-booking img,
+.loyalty-program img,
+.roadside-assistance img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.customer-benefits img:hover,
+.environmental-responsibility img:hover,
+.safety-measures img:hover,
+.advanced-booking img:hover,
+.loyalty-program img:hover,
+.roadside-assistance img:hover {
+    transform: scale(1.1);
+}
+.navbar {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    background: linear-gradient(to bottom, #333, #222);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1em;
+    z-index: 1;
+    display: none;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    text-align: center;
+    border-radius: 8px;
+    margin: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+ </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-icon" onclick="toggleNavbar()">☰</div>
+        <h1> About</h1>
+    </header>
+
+    <div class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="models.html">Models</a>
+        <a href="main.html">Form</a>
+    </div>
+
+    <main id="main-content">
+        <h2>About Car Rental System</h2>
+        <p>We are dedicated to providing reliable and affordable car rental services. With a fleet of well-maintained vehicles, we ensure your journey is comfortable and memorable.</p>
+        <img src="aboutcar.jpg" alt="About Car Rental System" class="about-image">
+        <div class="details fadeIn row">
+            <div class="col-md-6">
+                <h3>Our Commitment to Quality</h3>
+                <p>At Car Rental System, we prioritize the quality of our services. Our commitment is to provide top-notch vehicles, excellent customer service, and a seamless rental experience.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Wide Range of Vehicles</h3>
+                <p>Choose from our diverse fleet of vehicles, including sedans, SUVs, and luxury cars. Whether you need a car for business or leisure, we have the perfect vehicle for your needs.</p>
+            </div>
+        </div>
+        <div class="customer-benefits fadeIn">
+            <h3>Customer Benefits</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li>Competitive pricing and flexible rental plans</li>
+                        <li>24/7 customer support for assistance</li>
+                        <li>Easy online booking and reservation management</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>Regular promotions and discounts for loyal customers</li>
+                        <li>Transparent pricing with no hidden fees</li>
+                        <li>Access to exclusive rewards and perks</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="customer satisfaction.jpg" alt="Customer Benefits">
+                </div>
+            </div>
+        </div>
+        <div class="environmental-responsibility fadeIn">
+            <h3>Environmental Responsibility</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>As part of our commitment to sustainability, we actively pursue eco-friendly practices. Our fleet includes fuel-efficient and hybrid vehicles, contributing to a greener and cleaner environment.</p>
+                    <p>
+                        Providing educational materials and offering information on sustainable driving practices to renters is an ongoing initiative. We are actively promoting responsible driving habits, emphasizing the importance of maintaining consistent speeds and reducing unnecessary idling to optimize fuel efficiency. This approach ensures that renters are continually informed and encouraged to adopt eco-friendly behaviors during their journeys.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="envir-res.jpg" alt="Environmental Responsibility">
+                </div>
+            </div>
+        </div>
+        <div class="safety-measures fadeIn">
+            <h3>Safety Measures</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li>Thoroughly cleaned and sanitized vehicles</li>
+                        <li>Regular maintenance checks for optimal performance</li>
+                        <li>Compliance with safety regulations and standards</li>
+                        <li>Your safety is our constant focus</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>GPS tracking for added security</li>
+                        <li>Experienced and trained drivers</li>
+                        <li>Emergency roadside assistance</li>
+                        <li>Regular maintenance checks guarantee optimal performance</li>
+                        <li>Emergency braking systems and airbag installations. </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="safety measures.jpg" alt="Safety Measures">
+                </div>
+            </div>
+        </div>
+        <div class="advanced-booking fadeIn">
+            <h3>Advanced Booking Options</h3>
+            <p>Experience the convenience of advanced booking through our user-friendly online platform. Customize your reservation details and secure your desired vehicle hassle-free.</p>
+            <img src="advance-booking.jpg" alt="Advanced Booking Options">
+        </div>
+
+        <div class="loyalty-program fadeIn">
+            <h3>Customer Loyalty Program</h3>
+            <p>Join our exclusive loyalty program and enjoy special perks, discounts, and rewards with each rental. We value our loyal customers and strive to make each journey rewarding.</p>
+            <img src="cus-loyalty.jpg" alt="Customer Loyalty Program">
+        </div>
+
+        <div class="roadside-assistance fadeIn">
+            <h3>24/7 Roadside Assistance</h3>
+            <p>Your safety is our priority. Benefit from our round-the-clock roadside assistance service, ensuring you have support and peace of mind during your entire rental period.</p>
+            <img src="roadside assist.jpg" alt="24/7 Roadside Assistance">
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="path/to/common.js"></script>
+    <script>
+        function toggleNavbar() {
+            var navbar = document.getElementById("navbar");
+            if (navbar.style.display === "flex") {
+                navbar.style.display = "none";
+            } else {
+                navbar.style.display = "flex";
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

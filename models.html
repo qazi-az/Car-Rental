@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental System - Models</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       .full-screen-img {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.full-screen-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    border-radius: 8px;
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-container {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .brand-container:hover {
+            transform: scale(1.05);
+        }
+
+        h2, h3 {
+            color: #333;
+        }
+
+        .model-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .model-list li {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .model-list li strong {
+            display: block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .model-list li p {
+            padding: 15px;
+            margin: 0;
+            color: #555;
+        }
+
+        .model-list li img {
+            width: 100%;
+            height: auto;
+            border-radius: 0 0 8px 8px;
+        }
+
+
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: linear-gradient(to bottom, #333, #222);
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 1em;
+        z-index: 1;
+        display: none;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 1em;
+        text-align: center;
+        display: block;
+        border-radius: 8px;
+        margin: 5px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar a:hover {
+        background-color: #555;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-icon {
+        cursor: pointer;
+        font-size: 1.5em;
+        margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: row; 
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleNavbar()">☰</div>
+        <h1>Models</h1>
+    </header>
+
+    <div class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="main.html">Form</a>
+    </div>
+
+    <main id="main-content">
+        <h2>Our Car Models</h2>
+    <div class="brand-container">
+        <h3>Toyota</h3>
+        <ul class="model-list">
+            <li>
+                <strong>Corolla </strong>
+                <p>Name: Toyota Corolla Grande<br>
+                    Generation: 11th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="corolla.jpg" alt="Corolla Image">
+            </li>
+            <li>
+                <strong>Camry</strong>
+                <p>Name: Toyota Camry<br>
+                    Generation: 08th  Design Gen<br>
+                    Model: 2023
+                </p>
+                <img src="camry.jpg" alt="Camry Image">
+            </li>
+            <li>
+                <strong>Rav4</strong>
+                <p>Name: Toyota Rav4<br>
+                    Generation: 05th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="rav4.jpg" alt="Rav4 Image">
+            </li>
+            <li>
+                <strong>Highlander</strong>
+                <p>Name: Toyota Highlander<br>
+                    Generation: 04th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="highlander.jpg" alt="Highlander Image">
+            </li>
+            <li>
+                <strong>Prius</strong>
+                <p>Name: Toyota Prius<br>
+                    Generation: 05th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="prius.jpg" alt="Prius Image">
+            </li>
+        </ul>
+    </div>
+    <div class="brand-container">
+        <h3>Honda</h3>
+        <ul class="model-list">
+            <li>
+                <strong>Civic</strong>
+                <p>Name: Honda Civic<br>
+                    Generation: 11th Gen<br>
+                    Model: 2023
+                </p>
+            
+                <img src="civic.jpg" alt="Civic Image">
+            </li>
+            <li>
+                <strong>Accord</strong>
+                <p>Name: Honda Accord<br>
+                    Generation: 11th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="accord.jpg" alt="Accord Image">
+            </li>
+            <li>
+                <strong>Pilot</strong>
+                <p>Name: Honda Pilot<br>
+                    Generation: 04th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="pilot.jpg" alt="Pilot Image">
+            </li>
+            <li>
+                <strong>CR-V</strong>
+                <p>Name: Honda CR-V<br>
+                    Generation: 06th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="crv.jpg" alt="CR-V Image">
+                
+            </li>
+            <li>
+                <strong>Fit</strong>
+                <p>Name: Honda Fit<br>
+                    Generation: 05th Gen<br>
+                    Model: 2023
+                </p>
+                <img src="fit.jpg" alt="Fit Image">
+            </li>
+        </ul>
+    </div>
+    <div class="brand-container">
+        <h3>Ford</h3>
+        <ul class="model-list">
+            <li>
+                <strong>Fusion</strong>
+                <p>Details about Fusion: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="fusion.jpg" alt="Fusion Image">
+            </li>
+            <li>
+                <strong>Escape</strong>
+                <p>Details about Escape: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="escape.jpg" alt="Escape Image">
+            </li>
+            <li>
+                <strong>Explorer</strong>
+                <p>Details about Explorer: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                
+                <img src="explorer.jpg" alt="Explorer Image">
+            </li>
+            <li>
+                <strong>Mustang</strong>
+                <p>Details about Mustang: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="mustang.jpg" alt="Mustang Image">
+            </li>
+            <li>
+                <strong>F-150</strong>
+                <p>Details about F-150: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="f150.jpg" alt="F-150 Image">
+            </li>
+        </ul>
+    </div>
+    <div class="brand-container">
+        <h3>Chevrolet</h3>
+        <ul class="model-list">
+            <li>
+                <strong>Malibu</strong>
+                <p>Details about Malibu: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="malibu.jpg" alt="Malibu Image">
+            </li>
+            <li>
+                <strong>Equinox</strong>
+                <p>Details about Equinox: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="equinox.jpg" alt="Equinox Image">
+            </li>
+            <li>
+                <strong>Traverse</strong>
+                <p>Details about Traverse: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="traverse.jpg" alt="Traverse Image">
+            </li>
+            <li>
+                <strong>Camaro</strong>
+                <p>Details about Camaro: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="camaro.jpg" alt="Camaro Image">
+            </li>
+            <li>
+                <strong>Silverado</strong>
+                <p>Details about Silverado: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="silverado.jpg" alt="Silverado Image">
+            </li>
+        </ul>
+    </div>
+    <div class="brand-container">
+        <h3>BMW</h3>
+        <ul class="model-list">
+            <li>
+                <strong>3 Series</strong>
+                <p>Details about 3 Series: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="3series.jpg" alt="3 Series Image">
+            </li>
+            <li>
+                <strong>5 Series</strong>
+                <p>Details about 5 Series: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="5series.jpg" alt="5 Series Image">
+            </li>
+            <li>
+                <strong>X3</strong>
+                <p>Details about X3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="x3.jpg" alt="X3 Image">
+            </li>
+            <li>
+                <strong>X5</strong>
+                <p>Details about X5: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="x5.jpg" alt="X5 Image">
+            </li>
+            <li>
+                <strong>M4</strong>
+                <p>Details about M4: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="m4.jpg" alt="M4 Image">
+            </li>
+        </ul>
+    </div>
+    <div class="brand-container">
+        <h3>Mercedes</h3>
+        <ul class="model-list">
+            <li>
+                <strong>C-Class</strong>
+                <p>Details about C-Class: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <br>
+                <img src="cclass.jpg" alt="C-Class Image">
+            </li>
+            <li>
+                <strong>E-Class</strong>
+                <p>Details about E-Class: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="eclass.jpg" alt="E-Class Image">
+            </li>
+            <li>
+                <strong>GLC</strong>
+                <p>Details about GLC: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="glc.jpg" alt="GLC Image">
+            </li>
+            <li>
+                
+                <strong>GLE</strong>
+                <p>Details about GLE: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <br>
+                <br>
+                <img src="gle.jpg" alt="GLE Image">
+            </li>
+            <li>
+                <strong>S-Class</strong>
+                <p>Details about S-Class: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="sclass.jpg" alt="S-Class Image">
+            </li>
+        </ul>
+    </div>
+    
+    <div class="brand-container">
+        <h3>Audi</h3>
+        <ul class="model-list">
+            <li>
+                <strong>A3</strong>
+                <p>Details about A3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="a3.jpg" alt="A3 Image">
+            </li>
+            <li>
+                <strong>A4</strong>
+                <p>Details about A4: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="a4.jpg" alt="A4 Image">
+            </li>
+            <li>
+                <strong>Q5</strong>
+                <p>Details about Q5: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="q5.jpg" alt="Q5 Image">
+            </li>
+            <li>
+                <strong>Q7</strong>
+                <p>Details about Q7: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="q7.jpg" alt="Q7 Image">
+            </li>
+            <li>
+                <strong>R8</strong>
+                <p>Details about R8: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="r8.jpg" alt="R8 Image">
+            </li>
+        </ul>
+    </div>
+                <div class="brand-container">
+                    <h3>Volkswagen</h3>
+                    <ul class="model-list">
+                        <li>
+                            <strong>Jetta</strong>
+                            <p>Details about Jetta: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <img src="jetta.jpg" alt="Jetta Image">
+                        </li>
+                        <li>
+                            <strong>Golf</strong>
+                            <p>Details about Golf: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <img src="golf.jpg" alt="Golf Image">
+                        </li>
+                          <li>
+                            <strong>Passat</strong>
+                            <p>Details about Passat: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <img src="passat.jpg" alt="Passat Image">
+                          </li>
+                          <li>
+                            <strong>Tiguan</strong>
+                            <p>Details about Tiguan: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <img src="tiguan.jpg" alt="Tiguan Image">
+                          </li>
+                          <li>
+                                <strong>Atlas</strong>
+                                <p>Details about Atlas: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <img src="atlas.jpg" alt="Atlas Image">
+                          </li>
+                    </ul>
+                </div>
+
+    </main>
+
+    <script>
+              document.addEventListener('DOMContentLoaded', function () {
+            const modelImages = document.querySelectorAll('.model-list li img');
+            const fullScreenImgContainer = document.createElement('div');
+            fullScreenImgContainer.className = 'full-screen-img';
+
+            const fullScreenImg = document.createElement('img');
+            fullScreenImgContainer.appendChild(fullScreenImg);
+            document.body.appendChild(fullScreenImgContainer);
+
+            modelImages.forEach(image => {
+                image.addEventListener('click', function () {
+                    fullScreenImg.src = this.src;
+                    fullScreenImgContainer.style.display = 'flex';
+                });
+            });
+
+            fullScreenImgContainer.addEventListener('click', function () {
+                fullScreenImgContainer.style.display = 'none';
+            });
+        });
+
+
+
+        function toggleNavbar() {
+            var navbar = document.getElementById("navbar");
+            if (navbar.style.display === "flex") {
+                navbar.style.display = "none";
+            } else {
+                navbar.style.display = "flex";
+            }
+        }
+    </script>
+</body>
+</html>
